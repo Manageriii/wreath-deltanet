@@ -2,6 +2,7 @@
 
 **Breaking the Precision–Horizon–Expressivity Trilemma in Sub-Quadratic (`O(N)`) Sequence Models**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24532887.svg)](https://doi.org/10.5281/zenodo.24532887)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg)](https://www.python.org/)
 [![Hardware: Apple Silicon MPS / CUDA](https://img.shields.io/badge/Hardware-Apple%20Silicon%20%7C%20CUDA-success.svg)](#reproducing-the-benchmarks)
@@ -66,4 +67,17 @@ python3 stage2/run_block_diffusion_stage2.py
 
 ## Citation
 
-If you build upon Dual-Gear Wreath-DeltaNet or the Three-Regime Horizon Scaling Law, please cite **[PAPER_DRAFT.md](PAPER_DRAFT.md)**.
+If you build upon Dual-Gear Wreath-DeltaNet or the Three-Regime Horizon Scaling Law, please cite the archived Zenodo record ([`10.5281/zenodo.24532887`](https://doi.org/10.5281/zenodo.24532887)) and **[PAPER_DRAFT.md](PAPER_DRAFT.md)**:
+
+```bibtex
+@software{markus_2026_wreath_deltanet,
+  author       = {Markus (Manageriii)},
+  title        = {Dual-Gear Wreath-DeltaNet \& Recursive Block Diffusion: Breaking the Precision-Horizon-Expressivity Trilemma in Sub-Quadratic Sequence Models},
+  month        = nov,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.24532887},
+  url          = {https://doi.org/10.5281/zenodo.24532887}
+}
+```
