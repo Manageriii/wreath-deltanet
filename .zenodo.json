@@ -1,0 +1,21 @@
+{
+  "title": "Dual-Gear Wreath-DeltaNet & Recursive Block Diffusion: Breaking the Precision-Horizon-Expressivity Trilemma in Sub-Quadratic Sequence Models",
+  "description": "Theoretical proofs and reproducible PyTorch/MPS code for Dual-Gear Wreath-DeltaNet and Coarse-to-Fine Recursive Block Diffusion (NCM + TRM), achieving 100.0% zero-shot BF16 extrapolation from L=48 to L=32,768 (682x), 100.0% 8-bit FP8 state tracking at L=16,384 via chunk-boundary lattice snapping (C=64 BF16, C=4 FP8), and a 6.3x Apple Silicon GPU tournament-scan speedup.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Markus (Manageriii)"
+    }
+  ],
+  "keywords": [
+    "linear attention",
+    "state space models",
+    "Krohn-Rhodes decomposition",
+    "finite-precision drift",
+    "FP8",
+    "BF16",
+    "block diffusion",
+    "sub-quadratic sequence models"
+  ]
+}
