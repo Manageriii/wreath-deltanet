@@ -136,7 +136,7 @@ After isolating clean words to **Worker 2** and feeding the `≥ 75%` confidence
 
 ### Predictions (Logged Before Running!)
 1. **8-Bit `FP8` Safe Chunk Size `C`:** Leaving `C = 64` or `256` will allow `16×` per-step `FP8` rounding error to cross box boundaries and collapse before `L = 16,384`. Scaling `64 / 16 = 4` predicts **`C = 4` (with `C = 8` at the upper edge)** will match `BF16`'s error budget and hold **`100%`** out to `L = 16,384`.
-2. **`12`-Hour Clock Inside `8` Boxes:** **Yes**—since a single `8`-box loop caps at `8`, gradient descent will factor $\mathbb{Z}_{12}$ into smaller coupled cycles (`lcm = 12`, e.g., `3`-cycle + `4`-cycle + `1` anchor, or signed cycles) inside the `8 × 8` matrix.
+2. **`12`-Hour Clock Inside `8` Boxes:** **Yes**—since a single `8`-box loop caps at `8`, gradient descent will factor $`\mathbb{Z}_{12}`$ into smaller coupled cycles (`lcm = 12`, e.g., `3`-cycle + `4`-cycle + `1` anchor, or signed cycles) inside the `8 × 8` matrix.
 
 ### Results & Takeaways (Completed — Major Surprise Discovery!)
 
@@ -164,12 +164,12 @@ After isolating clean words to **Worker 2** and feeding the `≥ 75%` confidence
 ### Unified Architecture Confirmed Together
 1. **Dual-Gear Worker 1 (`{-1, 0, +1}` Swap-Boxes + Quantized `2D` Clock-Dial):**
    * **Swap Sub-Channel (`6 × 6`):** Tracks non-abelian box permutations (`S_4`/`S_5`), pulled to `{-1, 0, +1}` via the `L_4` valley magnet and snapped every `C = 4` tokens in `FP8`.
-   * **Clock Sub-Channel (`2 × 2` Rotation Dial):** Tracks cyclic counters (`12`-hour clock), pulled to `30°` ticks via $1 - \cos(12\theta)$ valley magnet and snapped to exact `30°` ticks every `C = 4` tokens in `FP8`.
+   * **Clock Sub-Channel (`2 × 2` Rotation Dial):** Tracks cyclic counters (`12`-hour clock), pulled to `30°` ticks via $`1 - \cos(12\theta)`$ valley magnet and snapped to exact `30°` ticks every `C = 4` tokens in `FP8`.
 2. **Coarse-to-Fine `NCM + TRM` Recursive Refinement (1 Compact Shared Block):**
    * **Stage 1 (`NCM Coarse Concept Pass`):** Pools each `C = 4` chunk into a coarse chunk-concept summary, initializing `(z_0, y_0)` and extracting the un-swapped skeleton.
    * **Stage 2 (`TRM Recursive Passes k = 1..3`):** Reuses the **same shared block** over `(z_k, y_k)`:
      * **`y_k` (Answer Draft):** Uses the `≥ 75%` confidence anchor lock (`< 75%` scaled by confidence).
-     * **`z_k` (Latent Scratchpad):** Remains **100% unfrozen** across all 3 passes (`z_k = z_{k-1} + Δz_k`) so multi-hop state and `FP8` corrections propagate freely!
+     * **`z_k` (Latent Scratchpad):** Remains **100% unfrozen** across all 3 passes ($`z_k = z_{k-1} + \Delta z_k`$) so multi-hop state and `FP8` corrections propagate freely!
 3. **Combined 4-Tier `StateBench` Benchmark (Evaluated in 8-Bit `FP8` @ `C = 4` to `L = 8,192`):**
    * **Tier 1 & 2:** Initial & mutable box overwrites + clock resets + filler chatter.
    * **Tier 3:** `12`-hour clock (`+1h, +2h, +5h, -1h mod 12`).
@@ -239,9 +239,9 @@ After isolating clean words to **Worker 2** and feeding the `≥ 75%` confidence
 In `v1.0`, our `12`-hour (`30°`) Clock-Dial handled `mod 2, 3, 4, 6, 12`, but couldn't represent `mod 5` or `mod 10` without adding a new dial. Can one **monolithic `60`-tick (`6°`) dial** (`lcm(2,3,4,5,6) = 60`) replace it—or does tightening the tick spacing `5×` break 8-bit `FP8`?
 
 ### Surprises & Breakthroughs (Logged Step-by-Step!)
-1. **Part 7A — Monolithic `Z_60` Breaks `FP8` (`2.3%`):** Shrinking ticks from `30°` to `6°` cuts the minimum state gap `4.95×` ($\Delta_{\mathbb{Z}_{60}} = 0.1480$ vs. $\Delta_{\mathbb{Z}_{12}} = 0.7321$). Under 8-bit `FP8` (`C = 4`), monolithic `Z_60` collapsed to **`2.3%`** at `L = 16,384` (confirming Theorem 1 out-of-sample!). Splitting into `Z_12 × Z_5` immediately restored **`100.0%`** in `FP8` at `C = 4` and `C = 16`.
-2. **Parts 7B & 7C — Subgroup Optimization Traps:** End-to-end training of a single monolithic `Z_60` dial got trapped inside its coarse `Z_5` (`72°`) subgroup (`19.4%` exact `mod 60`). Even partial `Z_12 × Z_5` got trapped inside `Z_12`'s `Z_4` (`90°`) subgroup (`55.2%`, failing `+1/3` ticks at `9.4%`).
-3. **Part 7D — Full Prime-Power CRT (`Z_4 × Z_3 × Z_5`, `90° / 120° / 72°`) Solves Everything:** Factoring `60` into coprime prime powers widened the minimum gap `11.2×` ($\Delta \ge 1.663$) and removed every subgroup trap. With an `L = 16 → 48 → 64` curriculum, `to_beta.bias = -4.5` (preventing early filler fade), and decoupled per-dial `≥97%` locks, zero-shot evaluation at **`L = 16,384` with ZERO mid-sequence resets** hit:
+1. **Part 7A — Monolithic $`\mathbb{Z}_{60}`$ Breaks FP8 (2.3%):** Shrinking ticks from 30° to 6° cuts the minimum state gap 4.95× ($`\Delta_{\mathbb{Z}_{60}} = 0.1480`$ vs. $`\Delta_{\mathbb{Z}_{12}} = 0.7321`$). Under 8-bit FP8 ($`C = 4`$), monolithic $`\mathbb{Z}_{60}`$ collapsed to **2.3%** at $`L = 16{,}384`$ (confirming Theorem 1 out-of-sample!). Splitting into $`\mathbb{Z}_{12} \times \mathbb{Z}_5`$ immediately restored **100.0%** in FP8 at $`C = 4`$ and $`C = 16`$.
+2. **Parts 7B & 7C — Subgroup Optimization Traps:** End-to-end training of a single monolithic $`\mathbb{Z}_{60}`$ dial got trapped inside its coarse $`\mathbb{Z}_5`$ (72°) subgroup (19.4% exact $`\bmod\ 60`$). Even partial $`\mathbb{Z}_{12} \times \mathbb{Z}_5`$ got trapped inside $`\mathbb{Z}_{12}`$'s $`\mathbb{Z}_4`$ (90°) subgroup (55.2%, failing `+1/3` ticks at 9.4%).
+3. **Part 7D — Full Prime-Power CRT ($`\mathbb{Z}_4 \times \mathbb{Z}_3 \times \mathbb{Z}_5`$, 90° / 120° / 72°) Solves Everything:** Factoring 60 into coprime prime powers widened the minimum gap 11.2× ($`\Delta \ge 1.663`$) and removed every subgroup trap. With an $`L = 16 \to 48 \to 64`$ curriculum, `to_beta.bias = -4.5` (preventing early filler fade), and decoupled per-dial $`\ge 97\%`$ locks, zero-shot evaluation at **$`L = 16{,}384`$ with ZERO mid-sequence resets** hit:
    * **Unsnapped Smooth Prime-CRT Baseline:** **`0.0%`** (`BF16`) / **`7.8%`** (`FP8`).
    * **Chunk-Snapped Prime-Power CRT (`Ours`):** **`100.0%` (`BF16`, `C = 64`)** and **`100.0%` (`FP8`, `C = 4`)** across **all 8 moduli (`mod 2, 3, 4, 5, 6, 10, 12, 60`)**!
 
