@@ -1,0 +1,46 @@
+{
+  "device": "mps",
+  "train_bytes": 467924,
+  "val_bytes": 187486,
+  "val_modules": [
+    "difflib",
+    "statistics",
+    "textwrap",
+    "csv"
+  ],
+  "models": {
+    "Hybrid-DeltaNet (8/8 Standard)": {
+      "params": 1857072,
+      "train_sec": 88.7,
+      "train_tok_per_sec": 13853,
+      "val_bpc_real_python": 3.3069,
+      "val_ppl_real_python": 9.897,
+      "val_bpc_snapped_C32": 3.3069,
+      "val_ppl_snapped_C32": 9.897,
+      "stateful_py_short_acc_pct": 51.37,
+      "stateful_py_long_acc_pct": 49.54,
+      "wreath_gates_learned": {}
+    },
+    "Hybrid-Wreath-DeltaNet (2/8 Wreath + 6/8 Std)": {
+      "params": 1861692,
+      "train_sec": 90.7,
+      "train_tok_per_sec": 13548,
+      "val_bpc_real_python": 3.3478,
+      "val_ppl_real_python": 10.181,
+      "val_bpc_snapped_C32": 3.3479,
+      "val_ppl_snapped_C32": 10.182,
+      "stateful_py_short_acc_pct": 45.59,
+      "stateful_py_long_acc_pct": 46.18,
+      "wreath_gates_learned": {
+        "lin1_wreath_gate": [
+          0.0016,
+          -0.0055
+        ],
+        "lin2_wreath_gate": [
+          -0.0011,
+          -0.0007
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 465" width="1060" height="465" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+  <rect x="1" y="1" width="1058" height="463" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="530" y="28" text-anchor="middle" font-size="19" font-weight="800" fill="#0f172a">Figure 1: Breaking the BF16 &amp; FP8 Precision-Horizon Trilemma</text>
+  <text x="287.0" y="48.0" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">(A) Low-Precision Horizon Collapse vs. Chunk Snap (S5)</text>
+  <text x="287.0" y="66.0" text-anchor="middle" font-size="11.5" fill="#475569">Exact Householder generators in dense rotated basis (exp5)</text>
+  <rect x="72" y="76" width="430" height="250" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="72" y1="326.0" x2="502" y2="326.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64.0" y="330.0" text-anchor="end" font-size="11" fill="#475569">0%</text>
+  <line x1="72" y1="276.0" x2="502" y2="276.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64.0" y="280.0" text-anchor="end" font-size="11" fill="#475569">20%</text>
+  <line x1="72" y1="226.0" x2="502" y2="226.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64.0" y="230.0" text-anchor="end" font-size="11" fill="#475569">40%</text>
+  <line x1="72" y1="176.0" x2="502" y2="176.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64.0" y="180.0" text-anchor="end" font-size="11" fill="#475569">60%</text>
+  <line x1="72" y1="126.0" x2="502" y2="126.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64.0" y="130.0" text-anchor="end" font-size="11" fill="#475569">80%</text>
+  <line x1="72" y1="76.0" x2="502" y2="76.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="64.0" y="80.0" text-anchor="end" font-size="11" fill="#475569">100%</text>
+  <line x1="72.0" y1="76" x2="72.0" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="72.0" y="344.0" text-anchor="middle" font-size="11" fill="#334155">64</text>
+  <line x1="179.5" y1="76" x2="179.5" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="179.5" y="344.0" text-anchor="middle" font-size="11" fill="#334155">256</text>
+  <line x1="287.0" y1="76" x2="287.0" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="287.0" y="344.0" text-anchor="middle" font-size="11" fill="#334155">1,024</text>
+  <line x1="394.5" y1="76" x2="394.5" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="394.5" y="344.0" text-anchor="middle" font-size="11" fill="#334155">4,096</text>
+  <line x1="502.0" y1="76" x2="502.0" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="502.0" y="344.0" text-anchor="middle" font-size="11" fill="#334155">16,384</text>
+  <text x="28.0" y="201.0" text-anchor="middle" font-size="12" font-weight="600" fill="#334155" transform="rotate(-90 28.0 201.0)">Accuracy (%)</text>
+  <text x="287.0" y="364.0" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">Sequence Length L (log scale)</text>
+  <polyline fill="none" stroke="#059669" stroke-width="3.5" points="72.0,76.0 179.5,76.0 287.0,76.0 394.5,76.0 502.0,76.0"/>
+  <circle cx="72.0" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="179.5" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="287.0" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="394.5" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="502.0" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#2563eb" stroke-width="2.6" stroke-dasharray="6,4" points="72.0,76.0 179.5,76.0 287.0,76.0 394.5,85.8 502.0,324.0"/>
+  <circle cx="72.0" cy="76.0" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="179.5" cy="76.0" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="287.0" cy="76.0" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="394.5" cy="85.8" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="502.0" cy="324.0" r="3.4" fill="#2563eb" stroke="#ffffff" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#d97706" stroke-width="2.6" stroke-dasharray="4,3" points="72.0,76.0 179.5,76.0 287.0,76.0 394.5,246.0 502.0,320.2"/>
+  <circle cx="72.0" cy="76.0" r="3.4" fill="#d97706" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="179.5" cy="76.0" r="3.4" fill="#d97706" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="287.0" cy="76.0" r="3.4" fill="#d97706" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="394.5" cy="246.0" r="3.4" fill="#d97706" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="502.0" cy="320.2" r="3.4" fill="#d97706" stroke="#ffffff" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#9333ea" stroke-width="2.6" stroke-dasharray="2,3" points="72.0,76.0 179.5,101.5 287.0,150.2 394.5,269.2 502.0,326.0"/>
+  <circle cx="72.0" cy="76.0" r="3.4" fill="#9333ea" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="179.5" cy="101.5" r="3.4" fill="#9333ea" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="287.0" cy="150.2" r="3.4" fill="#9333ea" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="394.5" cy="269.2" r="3.4" fill="#9333ea" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="502.0" cy="326.0" r="3.4" fill="#9333ea" stroke="#ffffff" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#dc2626" stroke-width="2.6" points="72.0,76.0 179.5,101.5 287.0,322.0 394.5,326.0 502.0,326.0"/>
+  <circle cx="72.0" cy="76.0" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="179.5" cy="101.5" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="287.0" cy="322.0" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="394.5" cy="326.0" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="502.0" cy="326.0" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="72.0" y1="382.0" x2="90.0" y2="382.0" stroke="#059669" stroke-width="3"/>
+  <text x="96.0" y="386.0" font-size="11" fill="#1e293b">BF16 C=64 &amp; FP8 C=4 (Ours)</text>
+  <line x1="295.6" y1="382.0" x2="313.6" y2="382.0" stroke="#2563eb" stroke-width="3" stroke-dasharray="6,4"/>
+  <text x="319.6" y="386.0" font-size="11" fill="#1e293b">BF16 RTN (DeltaProduct-style)</text>
+  <line x1="72.0" y1="401.0" x2="90.0" y2="401.0" stroke="#d97706" stroke-width="3" stroke-dasharray="4,3"/>
+  <text x="96.0" y="405.0" font-size="11" fill="#1e293b">FP8 Stochastic Round + Stiefel</text>
+  <line x1="295.6" y1="401.0" x2="313.6" y2="401.0" stroke="#9333ea" stroke-width="3" stroke-dasharray="2,3"/>
+  <text x="319.6" y="405.0" font-size="11" fill="#1e293b">FP8 Chunk C=256 (Too Wide)</text>
+  <line x1="72.0" y1="420.0" x2="90.0" y2="420.0" stroke="#dc2626" stroke-width="3"/>
+  <text x="96.0" y="424.0" font-size="11" fill="#1e293b">FP8 RTN Unsnapped</text>
+  <text x="797.0" y="48.0" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">(B) Zero-Shot 682x Extrapolation (Trained ONLY at L=48)</text>
+  <text x="797.0" y="66.0" text-anchor="middle" font-size="11.5" fill="#475569">80% distractor chatter (~26,200 fillers at L=32,768; exp1 &amp; exp2)</text>
+  <rect x="582" y="76" width="430" height="250" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="582" y1="326.0" x2="1012" y2="326.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="574.0" y="330.0" text-anchor="end" font-size="11" fill="#475569">0%</text>
+  <line x1="582" y1="276.0" x2="1012" y2="276.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="574.0" y="280.0" text-anchor="end" font-size="11" fill="#475569">20%</text>
+  <line x1="582" y1="226.0" x2="1012" y2="226.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="574.0" y="230.0" text-anchor="end" font-size="11" fill="#475569">40%</text>
+  <line x1="582" y1="176.0" x2="1012" y2="176.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="574.0" y="180.0" text-anchor="end" font-size="11" fill="#475569">60%</text>
+  <line x1="582" y1="126.0" x2="1012" y2="126.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="574.0" y="130.0" text-anchor="end" font-size="11" fill="#475569">80%</text>
+  <line x1="582" y1="76.0" x2="1012" y2="76.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="574.0" y="80.0" text-anchor="end" font-size="11" fill="#475569">100%</text>
+  <line x1="582.0" y1="76" x2="582.0" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="582.0" y="344.0" text-anchor="middle" font-size="11" fill="#334155">48 (1x)</text>
+  <line x1="725.3" y1="76" x2="725.3" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="725.3" y="344.0" text-anchor="middle" font-size="11" fill="#334155">2,048 (42x)</text>
+  <line x1="868.7" y1="76" x2="868.7" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="868.7" y="344.0" text-anchor="middle" font-size="11" fill="#334155">8,192 (170x)</text>
+  <line x1="1012.0" y1="76" x2="1012.0" y2="326" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="1012.0" y="344.0" text-anchor="middle" font-size="11" fill="#334155">32,768 (682x)</text>
+  <text x="538.0" y="201.0" text-anchor="middle" font-size="12" font-weight="600" fill="#334155" transform="rotate(-90 538.0 201.0)">Accuracy (%)</text>
+  <text x="797.0" y="364.0" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">Sequence Length L (log scale)</text>
+  <polyline fill="none" stroke="#059669" stroke-width="3.5" points="582.0,76.0 725.3,77.5 868.7,76.0 1012.0,76.0"/>
+  <circle cx="582.0" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="725.3" cy="77.5" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="868.7" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="1012.0" cy="76.0" r="4.2" fill="#059669" stroke="#ffffff" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#0284c7" stroke-width="2.6" stroke-dasharray="5,3" points="582.0,76.0 725.3,76.0 868.7,76.0 1012.0,77.5"/>
+  <circle cx="582.0" cy="76.0" r="3.4" fill="#0284c7" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="725.3" cy="76.0" r="3.4" fill="#0284c7" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="868.7" cy="76.0" r="3.4" fill="#0284c7" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="1012.0" cy="77.5" r="3.4" fill="#0284c7" stroke="#ffffff" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#64748b" stroke-width="2.6" stroke-dasharray="4,4" points="582.0,166.8 725.3,176.0 868.7,169.8"/>
+  <circle cx="582.0" cy="166.8" r="3.4" fill="#64748b" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="725.3" cy="176.0" r="3.4" fill="#64748b" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="868.7" cy="169.8" r="3.4" fill="#64748b" stroke="#ffffff" stroke-width="1.2"/>
+  <polyline fill="none" stroke="#dc2626" stroke-width="2.6" points="582.0,76.0 725.3,280.8 868.7,299.5 1012.0,290.0"/>
+  <circle cx="582.0" cy="76.0" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="725.3" cy="280.8" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="868.7" cy="299.5" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <circle cx="1012.0" cy="290.0" r="3.4" fill="#dc2626" stroke="#ffffff" stroke-width="1.2"/>
+  <line x1="582.0" y1="382.0" x2="600.0" y2="382.0" stroke="#059669" stroke-width="3"/>
+  <text x="606.0" y="386.0" font-size="11" fill="#1e293b">Adaptive Magnet + 5% Dead-Zone (Ours)</text>
+  <line x1="805.6" y1="382.0" x2="823.6" y2="382.0" stroke="#0284c7" stroke-width="3" stroke-dasharray="5,3"/>
+  <text x="829.6" y="386.0" font-size="11" fill="#1e293b">Adaptive Magnet + Leaky Gate</text>
+  <line x1="582.0" y1="401.0" x2="600.0" y2="401.0" stroke="#64748b" stroke-width="3" stroke-dasharray="4,4"/>
+  <text x="606.0" y="405.0" font-size="11" fill="#1e293b">Baseline Gated DeltaNet (No Wreath)</text>
+  <line x1="805.6" y1="401.0" x2="823.6" y2="401.0" stroke="#dc2626" stroke-width="3"/>
+  <text x="829.6" y="405.0" font-size="11" fill="#1e293b">Smooth Wreath-GDN (No Magnet)</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1060 455" width="1060" height="455" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+  <rect x="1" y="1" width="1058" height="453" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="530.0" y="28" text-anchor="middle" font-size="18.5" font-weight="800" fill="#0f172a">Figure 3: v1.1 Results — Prime-Power CRT Universal Clocks &amp; 3:1 Hybrid Real Python/English LM</text>
+  <text x="287.5" y="52" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">(A) Universal 60-Tick Clock: Monolithic vs. CRT (Exp 7)</text>
+  <text x="287.5" y="69" text-anchor="middle" font-size="11" fill="#475569">8-Bit FP8 L=16,384 (left 2) &amp; End-to-End L=48 Training Ladder (right 3)</text>
+  <rect x="70" y="78" width="435" height="250" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="70" y1="328.0" x2="505" y2="328.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="62" y="332.0" text-anchor="end" font-size="11" fill="#475569">0%</text>
+  <line x1="70" y1="278.0" x2="505" y2="278.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="62" y="282.0" text-anchor="end" font-size="11" fill="#475569">20%</text>
+  <line x1="70" y1="228.0" x2="505" y2="228.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="62" y="232.0" text-anchor="end" font-size="11" fill="#475569">40%</text>
+  <line x1="70" y1="178.0" x2="505" y2="178.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="62" y="182.0" text-anchor="end" font-size="11" fill="#475569">60%</text>
+  <line x1="70" y1="128.0" x2="505" y2="128.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="62" y="132.0" text-anchor="end" font-size="11" fill="#475569">80%</text>
+  <line x1="70" y1="78.0" x2="505" y2="78.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="62" y="82.0" text-anchor="end" font-size="11" fill="#475569">100%</text>
+  <rect x="89.1" y="322.1" width="48.7" height="5.8" rx="5" fill="#dc2626" opacity="0.9"/>
+  <text x="113.5" y="316.1" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">2.3%</text>
+  <text x="113.5" y="344.0" text-anchor="middle" font-size="10.2" fill="#334155">Mono Z60</text>
+  <text x="113.5" y="357.0" text-anchor="middle" font-size="10.2" fill="#334155">FP8 C=4</text>
+  <text x="113.5" y="370.0" text-anchor="middle" font-size="10.2" fill="#334155">(16K)</text>
+  <rect x="176.1" y="78.0" width="48.7" height="250.0" rx="5" fill="#059669" opacity="0.9"/>
+  <text x="200.5" y="72.0" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">100.0%</text>
+  <text x="200.5" y="344.0" text-anchor="middle" font-size="10.2" fill="#334155">CRT Z12xZ5</text>
+  <text x="200.5" y="357.0" text-anchor="middle" font-size="10.2" fill="#334155">FP8 C=4</text>
+  <text x="200.5" y="370.0" text-anchor="middle" font-size="10.2" fill="#334155">(16K)</text>
+  <rect x="263.1" y="326.0" width="48.7" height="2.0" rx="5" fill="#f97316" opacity="0.9"/>
+  <text x="287.5" y="320.0" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">0.0%</text>
+  <text x="287.5" y="344.0" text-anchor="middle" font-size="10.2" fill="#334155">Trained</text>
+  <text x="287.5" y="357.0" text-anchor="middle" font-size="10.2" fill="#334155">Unsnap</text>
+  <text x="287.5" y="370.0" text-anchor="middle" font-size="10.2" fill="#334155">(16K 0-rst)</text>
+  <rect x="350.1" y="78.0" width="48.7" height="250.0" rx="5" fill="#2563eb" opacity="0.9"/>
+  <text x="374.5" y="72.0" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">100.0%</text>
+  <text x="374.5" y="344.0" text-anchor="middle" font-size="10.2" fill="#334155">Trained</text>
+  <text x="374.5" y="357.0" text-anchor="middle" font-size="10.2" fill="#334155">CRT BF16</text>
+  <text x="374.5" y="370.0" text-anchor="middle" font-size="10.2" fill="#334155">(16K 0-rst)</text>
+  <rect x="437.1" y="78.0" width="48.7" height="250.0" rx="5" fill="#0d9488" opacity="0.9"/>
+  <text x="461.5" y="72.0" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">100.0%</text>
+  <text x="461.5" y="344.0" text-anchor="middle" font-size="10.2" fill="#334155">Trained</text>
+  <text x="461.5" y="357.0" text-anchor="middle" font-size="10.2" fill="#334155">CRT FP8</text>
+  <text x="461.5" y="370.0" text-anchor="middle" font-size="10.2" fill="#334155">(16K 0-rst)</text>
+  <text x="797.5" y="52" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">(B) 3:1 Hybrid LM on Unseen Python Stdlib (Exp 8)</text>
+  <text x="797.5" y="69" text-anchor="middle" font-size="11" fill="#475569">Held-out modules: difflib, statistics, textwrap, csv (187 KB; +0.25% params)</text>
+  <rect x="580" y="78" width="435" height="250" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+  <line x1="580" y1="328.0" x2="1015" y2="328.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="572" y="332.0" text-anchor="end" font-size="11" fill="#475569">0</text>
+  <line x1="580" y1="265.5" x2="1015" y2="265.5" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="572" y="269.5" text-anchor="end" font-size="11" fill="#475569">3</text>
+  <line x1="580" y1="203.0" x2="1015" y2="203.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="572" y="207.0" text-anchor="end" font-size="11" fill="#475569">6</text>
+  <line x1="580" y1="140.5" x2="1015" y2="140.5" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="572" y="144.5" text-anchor="end" font-size="11" fill="#475569">9</text>
+  <line x1="580" y1="78.0" x2="1015" y2="78.0" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="572" y="82.0" text-anchor="end" font-size="11" fill="#475569">12</text>
+  <text x="542" y="203.0" text-anchor="middle" font-size="11.5" font-weight="600" fill="#334155" transform="rotate(-90 542 203.0)">Validation Perplexity (lower is better)</text>
+  <rect x="617.7" y="121.8" width="69.6" height="206.2" rx="6" fill="#64748b" opacity="0.9"/>
+  <text x="652.5" y="114.8" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">9.897</text>
+  <text x="652.5" y="344.0" text-anchor="middle" font-size="10.5" fill="#334155">Hybrid-DeltaNet</text>
+  <text x="652.5" y="357.0" text-anchor="middle" font-size="10.5" fill="#334155">(8/8 Standard)</text>
+  <text x="652.5" y="370.0" text-anchor="middle" font-size="10.5" fill="#334155">Val PPL</text>
+  <rect x="762.7" y="115.9" width="69.6" height="212.1" rx="6" fill="#059669" opacity="0.9"/>
+  <text x="797.5" y="108.9" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">10.181</text>
+  <text x="797.5" y="344.0" text-anchor="middle" font-size="10.5" fill="#334155">Hybrid-Wreath</text>
+  <text x="797.5" y="357.0" text-anchor="middle" font-size="10.5" fill="#334155">(2/8 Wreath)</text>
+  <text x="797.5" y="370.0" text-anchor="middle" font-size="10.5" fill="#334155">Val PPL</text>
+  <rect x="907.7" y="115.9" width="69.6" height="212.1" rx="6" fill="#0284c7" opacity="0.9"/>
+  <text x="942.5" y="108.9" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">10.182</text>
+  <text x="942.5" y="344.0" text-anchor="middle" font-size="10.5" fill="#334155">Hybrid-Wreath</text>
+  <text x="942.5" y="357.0" text-anchor="middle" font-size="10.5" fill="#334155">(C=32 Snapped)</text>
+  <text x="942.5" y="370.0" text-anchor="middle" font-size="10.5" fill="#334155">Val PPL</text>
+  <text x="530.0" y="437" text-anchor="middle" font-size="11" fill="#475569">Exp 8 Speed: DeltaNet 13,853 tok/s vs. Wreath 13,548 tok/s (+0.25% params) | Learned Wreath gates: L1=[0.0016, -0.0055], L2=[-0.0011, -0.0007]</text>
+</svg>
