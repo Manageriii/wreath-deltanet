@@ -104,7 +104,7 @@ Add a **Dead-Zone** on the value-write knob once the model has learned the basic
 3. **3-Pass Image-Diffusion-Style Parallel Refinement (Single Compact Weight-Shared Block on Chained "If-Then" Swaps):**
    * **Pass 1 (`Skeleton`):** Swapper stays quiet (`OFF`)—builds a clean first-draft skeleton of un-swapped control values across all chunks in parallel.
    * **Pass 2 (`Full Draft + Scoring Formula`):** Swapper turns `ON`—uses Pass 1's skeleton to run all swaps and outputs a **Confidence Score** (prediction certainty margin) at every token.
-   * **Pass 3 (`Self-Correcting Remasking`):** Any draft state with low confidence is **remasked** (wiped back to clean neutral state so bad guesses don't stick), while high-confidence states stay anchored, sharpeningchained `Box 0 → Box 1↔2 → Box 3↔4` swaps in parallel!
+   * **Pass 3 (`Self-Correcting Remasking`):** Any draft state with low confidence is **remasked** (wiped back to clean neutral state so bad guesses don't stick), while high-confidence states stay anchored, sharpening chained `Box 0 → Box 1↔2 → Box 3↔4` swaps in parallel!
 
 ### Results & Takeaways
 
@@ -125,7 +125,7 @@ After isolating clean words to **Worker 2** and feeding the `≥ 75%` confidence
 | :--- | :---: | :---: | :---: | :---: |
 | **Pass 1 (`Skeleton` — Swapper OFF)** | `62.5%` *(Hop2: `60.9%`)* | `50.0%` *(Hop2: `57.8%`)* | `47.7%` *(Hop2: `43.8%`)* | `46.9%` *(Hop2: `50.0%`)* |
 | **Pass 2 (`Hop-1 Draft`)** | `93.0%` *(Hop2: `85.9%`)* | `77.3%` *(Hop2: `57.8%`)* | `81.2%` *(Hop2: `64.1%`)* | `82.0%` *(Hop2: `68.8%`)* |
-| **Pass 3 (`Confidence-Locked Refine`)** | **`100.0%` *(Hop2: `100.0%`!)*** | **`96.9%` *(Hop2: `95.3%`)*** | **`94.5%` *(Hop2: `89.1%`)*** | **`93.8%` *(Hop2: `89.1%`)*** |
+| **Pass 3 (`Confidence-Locked Refine`)** | **`100.0%`** *(Hop2: `100.0%`!)* | **`96.9%`** *(Hop2: `95.3%`)* | **`94.5%`** *(Hop2: `89.1%`)* | **`93.8%`** *(Hop2: `89.1%`)* |
 
 * **Key Takeaway:** Without adding extra layers of parameters, running 3 parallel refinement passes climbed **`46.9% → 82.0% → 93.8%`** (`+46.9%` gain!) at `L = 8,192`, with Hop-2 chained swaps jumping **`57.8% → 95.3%`** from Pass 2 to Pass 3 at `L = 512`!
 
@@ -190,7 +190,7 @@ After isolating clean words to **Worker 2** and feeding the `≥ 75%` confidence
 
 ---
 
-## Stage 2 (Experiment #7): Autonomous `SuperBPE + CoBPE` Self-Inventing Reasoning Language Model
+## Stage 2A (`stage2/`): Autonomous `SuperBPE + CoBPE` Self-Inventing Reasoning Language Model
 
 ### Setup (`stage2/`)
 * **Zero Box or Clock Labels:** Pure next-`(base, modifier)` language modeling over `<think> ... </think> <ans> ... </ans>` across 3 domains (*Unseen Mystery-Rule Induction*, *Python Stateful Code*, and *Deductive Entity Stories*).
@@ -212,7 +212,7 @@ After isolating clean words to **Worker 2** and feeding the `≥ 75%` confidence
 
 ---
 
-## Stage 2 v2 (Experiment #8): True Parallel Block Diffusion + `NCM` + `TRM` + Multi-Head (`H = 8`) Wreath LM on Apple `MPS` GPU
+## Stage 2B (`stage2/block_diffusion_wreath_lm.py`): True Parallel Block Diffusion + `NCM` + `TRM` + Multi-Head (`H = 8`) Wreath LM on Apple `MPS` GPU
 
 ### Architectural Upgrades (`stage2/block_diffusion_wreath_lm.py`)
 1. **100% True Parallel Block Diffusion (`32` Supertokens Denoised Simultaneously from `<MASK>`):**
@@ -229,3 +229,34 @@ After isolating clean words to **Worker 2** and feeding the `≥ 75%` confidence
   * **Deductive Trading Stories (`story:`):** Wreath LM **doubled** `H = 8` Baseline (**`8.3%` vs. `4.2%`**).
   * **`3.5×` Long-Horizon 8-Bit `FP8` (`C = 4`):** `H = 8` Baseline collapsed to **`0.0%`** exact across every pass, while Wreath LM maintained non-zero exact completions (`2.3%` on `3.5×` long stories) and climbed monotonically across parallel diffusion passes (`P0: 8.9% → P1: 10.6% → P2/P3: 12.2%`).
 * **Honest Stage-2 Takeaway for the Paper:** Supervising *only* the final `<ans>` after `60` tokens of multi-clause text creates a sparse credit-assignment bottleneck (note `lam_box = 0.20` only began ramping `~110` steps before training ended); scaling to full-document blockwise diffusion pretraining (denoising every `C`-token block along the document) provides dense per-clause gradients!
+
+
+---
+
+## `v1.1` Experiment #7 (`exp7_universal_60tick_dial.py`): Universal 60-Tick Clock via Prime-Power CRT (`Z_4 × Z_3 × Z_5`)
+
+### The Puzzle
+In `v1.0`, our `12`-hour (`30°`) Clock-Dial handled `mod 2, 3, 4, 6, 12`, but couldn't represent `mod 5` or `mod 10` without adding a new dial. Can one **monolithic `60`-tick (`6°`) dial** (`lcm(2,3,4,5,6) = 60`) replace it—or does tightening the tick spacing `5×` break 8-bit `FP8`?
+
+### Surprises & Breakthroughs (Logged Step-by-Step!)
+1. **Part 7A — Monolithic `Z_60` Breaks `FP8` (`2.3%`):** Shrinking ticks from `30°` to `6°` cuts the minimum state gap `4.95×` ($\Delta_{\mathbb{Z}_{60}} = 0.1480$ vs. $\Delta_{\mathbb{Z}_{12}} = 0.7321$). Under 8-bit `FP8` (`C = 4`), monolithic `Z_60` collapsed to **`2.3%`** at `L = 16,384` (confirming Theorem 1 out-of-sample!). Splitting into `Z_12 × Z_5` immediately restored **`100.0%`** in `FP8` at `C = 4` and `C = 16`.
+2. **Parts 7B & 7C — Subgroup Optimization Traps:** End-to-end training of a single monolithic `Z_60` dial got trapped inside its coarse `Z_5` (`72°`) subgroup (`19.4%` exact `mod 60`). Even partial `Z_12 × Z_5` got trapped inside `Z_12`'s `Z_4` (`90°`) subgroup (`55.2%`, failing `+1/3` ticks at `9.4%`).
+3. **Part 7D — Full Prime-Power CRT (`Z_4 × Z_3 × Z_5`, `90° / 120° / 72°`) Solves Everything:** Factoring `60` into coprime prime powers widened the minimum gap `11.2×` ($\Delta \ge 1.663$) and removed every subgroup trap. With an `L = 16 → 48 → 64` curriculum, `to_beta.bias = -4.5` (preventing early filler fade), and decoupled per-dial `≥97%` locks, zero-shot evaluation at **`L = 16,384` with ZERO mid-sequence resets** hit:
+   * **Unsnapped Smooth Prime-CRT Baseline:** **`0.0%`** (`BF16`) / **`7.8%`** (`FP8`).
+   * **Chunk-Snapped Prime-Power CRT (`Ours`):** **`100.0%` (`BF16`, `C = 64`)** and **`100.0%` (`FP8`, `C = 4`)** across **all 8 moduli (`mod 2, 3, 4, 5, 6, 10, 12, 60`)**!
+
+
+---
+
+## `v1.1` Experiment #8 (`exp8_hybrid_text_perplexity.py`): `3:1` Hybrid LM on Strictly Unseen Real Python Stdlib
+
+### The Question
+Does dropping `2/8` Dual-Gear Wreath heads into a `3:1` Hybrid LM (`3` linear `Gated DeltaNet` layers + `1` full softmax attention layer, `~1.86M` params) hurt perplexity or speed on real messy Python + English source code?
+
+### Clean Split & Results (Apple M4 Pro `MPS`)
+* **Train (`425 KB`):** 8 stdlib modules (`argparse`, `collections`, `dataclasses`, `functools`, `json`, `pathlib`, `re`, `urllib.parse`).
+* **Held-Out Validation (`187 KB`, 0 file leakage):** 4 completely unseen modules (`difflib`, `statistics`, `textwrap`, `csv`).
+* **Results:**
+  * `Hybrid-DeltaNet (8/8 Std)`: `1,857,072` params · `13,853 tok/s` · `Val PPL = 9.897` (`BPC = 3.3069`).
+  * `Hybrid-Wreath-DeltaNet (2/8 Zero-Init Wreath + 6/8 Std)`: `1,861,692` params (`+0.25%`) · `13,548 tok/s` (`-2.2%`) · `Val PPL = 10.181` → **`10.182` snapped at `C = 32` (`+0.001` snap delta!)**.
+* **Honest Takeaway:** Zero-init Wreath heads degrade real-code speed and snapped perplexity negligibly (`+0.001`), while a short `320`-step byte-level prose run keeps the learned gates near Identity (`L1 = [0.0016, -0.0055]`, `L2 = [-0.0011, -0.0007]`). Awakening full discrete swaps/clocks inside general text LMs requires longer pretraining or auxiliary state-tracking curriculum mixing.

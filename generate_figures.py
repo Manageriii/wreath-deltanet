@@ -160,8 +160,8 @@ def make_fig2():
         "Chunk C=512\n(16 chunks)",
         "Unsnapped\n(C=8,192)",
     ]
-    ms_vals = [2951.0, 1063.0, 471.0, 560.0, 916.0]
-    acc_vals = [100.0, 100.0, 100.0, 96.0, 42.5]
+    ms_vals = [2951.0, 1063.0, 471.0, 1964.0, 916.0]
+    acc_vals = [100.0, 100.0, 100.0, 100.0, 42.5]
 
     parts = [
         f'  <text x="{w/2:.1f}" y="34" text-anchor="middle" font-size="18" font-weight="800" fill="#0f172a">Figure 2: Apple Silicon (M4 Pro MPS) Chunk-Size Goldilocks Curve (L = 8,192)</text>',
